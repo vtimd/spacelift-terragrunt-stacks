@@ -16,17 +16,6 @@ locals {
     Project     = "Terragrunt-Demo"
   }
 }
-
-remote_state {
-  backend = "s3"
-  
-  config = {
-    bucket         = "spacelift-terragrunt-state-${local.environment}"
-    key            = "${path_relative_to_include()}/terraform.tfstate"
-    region         = local.aws_region
-    encrypt        = true
-    dynamodb_table = "spacelift-terragrunt-locks"
-  }
   
   generate = {
     path      = "backend.tf"

@@ -14,8 +14,9 @@ data "aws_ami" "amazon_linux_2023" {
 }
 
 resource "aws_instance" "demo" {
-  ami           = data.aws_ami.amazon_linux_2023.id
-  instance_type = var.instance_type
+  ami                         = data.aws_ami.amazon_linux_2023.id
+  instance_type               = var.instance_type
+  associate_public_ip_address = false
   
   monitoring = var.enable_monitoring
   

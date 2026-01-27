@@ -16,12 +16,6 @@ locals {
     Project     = "Terragrunt-Demo"
   }
 }
-  
-  generate = {
-    path      = "backend.tf"
-    if_exists = "overwrite_terragrunt"
-  }
-}
 
 generate "provider" {
   path      = "provider.tf"

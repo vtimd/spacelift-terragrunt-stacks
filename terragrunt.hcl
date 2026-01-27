@@ -1,9 +1,14 @@
 # terragrunt.hcl (root)
 
 locals {
-  parsed      = regex(".*/environments/(?P<env>.*?)/.*", get_terragrunt_dir())
-  environment = local.parsed.env
-  aws_region  = "us-east-1"
+  # Extract environment from path - works with both local and Spacelift
+  path_parts  = split("/", get_terragrunt_dir())
+  environment = try(
+    element([for part in local.path_parts : part if contains(["dev", "prod"], part)], 0),
+    "unknown"
+  )
+  
+  aws_region = "us-east-1"
   
   common_tags = {
     ManagedBy   = "Spacelift"

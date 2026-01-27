@@ -1,0 +1,47 @@
+# Terragrunt Demo for Spacelift
+
+Simple Terragrunt demo deploying EC2 instances to Dev and Prod environments.
+
+## Repository Structure
+
+```
+.
+├── terragrunt.hcl                    # Root config (common settings)
+├── environments/
+│   ├── dev/
+│   │   └── ec2/
+│   │       └── terragrunt.hcl       # Dev environment
+│   └── prod/
+│       └── ec2/
+│           └── terragrunt.hcl       # Prod environment
+└── modules/
+    └── ec2/
+        ├── main.tf
+        ├── variables.tf
+        ├── outputs.tf
+        └── versions.tf
+```
+
+## Spacelift Stack Configuration
+
+Create two stacks in Spacelift:
+
+**Dev Stack:**
+- Project root: `environments/dev/ec2`
+- Terragrunt: Enabled
+- State managed automatically by Spacelift
+
+**Prod Stack:**
+- Project root: `environments/prod/ec2`
+- Terragrunt: Enabled
+- State managed automatically by Spacelift
+
+## Environment Differences
+
+| Setting | Dev | Prod |
+|---------|-----|------|
+| Instance Type | t3.micro | t3.small |
+| Storage | 8GB | 20GB |
+| Monitoring | Disabled | Enabled |
+
+That's it! Spacelift handles the rest.

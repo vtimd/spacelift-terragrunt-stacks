@@ -1,6 +1,6 @@
-# Terragrunt Demo for Spacelift
+# Terragrunt Stacks for Spacelift
 
-Simple Terragrunt demo deploying EC2 instances to Dev and Prod environments.
+Simple Terragrunt deployment with EC2 instances to Dev and Prod environments.
 
 ## Repository Structure
 

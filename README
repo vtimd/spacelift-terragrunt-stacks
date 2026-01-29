@@ -22,19 +22,7 @@ Simple Terragrunt deployment with EC2 instances to Dev and Prod environments.
         └── versions.tf
 ```
 
-## Spacelift Stack Configuration
 
-Create two stacks in Spacelift:
-
-**Dev Stack:**
-- Project root: `environments/dev/ec2`
-- Terragrunt: Enabled
-- State managed automatically by Spacelift
-
-**Prod Stack:**
-- Project root: `environments/prod/ec2`
-- Terragrunt: Enabled
-- State managed automatically by Spacelift
 
 ## Environment Differences
 

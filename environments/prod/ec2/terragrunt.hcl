@@ -11,5 +11,5 @@ inputs = {
   instance_type     = "t3.small"
   environment       = "prod"
   enable_monitoring = true
-  root_volume_size  = 20
+  root_volume_size  = 30
 }

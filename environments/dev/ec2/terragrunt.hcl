@@ -11,5 +11,5 @@ inputs = {
   instance_type     = "t3.micro"
   environment       = "dev"
   enable_monitoring = false
-  root_volume_size  = 8
+  root_volume_size  = 30
 }
